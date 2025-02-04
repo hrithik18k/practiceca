@@ -1,8 +1,22 @@
-function User (username, email, password, dateOfBirth) {
-    this.username = username;
-    this.email = email;
-    this.password = password;
-    this.dateOfBirth = dateOfBirth;
-};
+const mongoose = require('mongoose');
 
-module.exports = User;
+const userSchema = new mongoose.Schema({
+    username: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    password: {
+        type: String,
+        required: true
+    },
+    dateOfBirth: {
+        type: Date,
+        required: true
+    }
+}); 
+
+module.exports = mongoose.model('User', userSchema);
